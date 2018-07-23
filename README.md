@@ -1,1 +1,1 @@
-# aws-nodejs-eb-x-ray
+# AWS X-Ray Elastic Beanstalk NodeJS template
