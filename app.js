@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 AWS.config.region = process.env.REGION
 
 XRay.middleware.setSamplingRules('sampling-rules.json');
-XRay.middleware.enableDynamicNaming();
 
 var app = express();
 
