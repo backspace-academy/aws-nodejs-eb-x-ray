@@ -11,7 +11,6 @@ AWS.config.region = process.env.REGION
 
 XRay.config([XRay.plugins.EC2Plugin, XRay.plugins.ElasticBeanstalkPlugin]);
 XRay.middleware.setSamplingRules('sampling-rules.json');
-XRay.middleware.enableDynamicNaming();
 
 var app = express();
 
