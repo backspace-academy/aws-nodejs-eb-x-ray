@@ -7,7 +7,7 @@ var S3 = new AWS.S3();
 var express = require('express');
 var bodyParser = require('body-parser');
 
-AWS.config.region = process.env.REGION
+AWS.config.region = process.env.AWS_REGION
 
 XRay.config([XRay.plugins.EC2Plugin, XRay.plugins.ElasticBeanstalkPlugin]);
 XRay.middleware.setSamplingRules('sampling-rules.json');
@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
         if (err) bucketList = JSON.stringify(err); // an error occurred
         else     {                                 // successful response
           for (var a=0; a<data.Buckets.length; a++) {
-            bucketList += JSON.stringify(data.Buckets[a].Name);
+            bucketList += data.Buckets[a].Name + "<br>"
           }
         }
         res.render('index', {
